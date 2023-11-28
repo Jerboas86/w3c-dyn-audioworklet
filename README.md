@@ -4,7 +4,7 @@ Is it possible for a third-party library to add an audioworklet module generated
 
 ## Context
 
-Astrone ([link](https://www.astrone.app)) is a web based audiometric system. the application might be considered as a medical device (Software As a Medical Device). As such, we need to reduce cybersecurity risks as much as possible.
+Astrone ([link](https://www.astrone.app/playground)) is a web based audiometric system. the application might be considered as a medical device (Software As a Medical Device). As such, we need to reduce cybersecurity risks as much as possible.
 
 Faust ([link](https://faust.grame.fr/)) is a functional programming language for sound synthesis and audio processing created at the GRAME-CNCM Research Department. Faust program can be deployed to the web thanks to faustwasm library ([link](https://github.com/grame-cncm/faustwasm)).
 
