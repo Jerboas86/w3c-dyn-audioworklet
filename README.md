@@ -22,13 +22,13 @@ In both cases, everything works fine with regard to sound processing, BUT it req
 In the best case (generated node via wasm module), i need to modify my CSP from:
 
 ```
-script-src: self;
+script-src: self 'wasm-unsafe-eval';
 ```
 
 to:
 
 ```
-script-src: self blob:;
+script-src: self 'wasm-unsafe-eval' blob:;
 ```
 
 This modification is a security issue since it opens the application to XSS attacks.
@@ -59,4 +59,5 @@ Generates the audioworklet script on the server side, and hydrates the generated
 
 - Astrone has already a "dynamic" audioworklet node called Custom node. The script is hydrated at runtime via `postMessage` api.
   In the case of faustwasm, things are more complicated because there is parameterDescriptors that is defined in the meta data.
-- When we generates the node directly from a faust program, we need to add `unsafe-eval` to `script-src` due to a bug in emscripten ([#131](https://github.com/rive-app/rive-wasm/issues/131))
+- When we generates the node directly from a faust program, we need to add `unsafe-eval` to `script-src` due to a bug in emscripten ([#131](https://github.com/rive-app/rive-wasm/issues/131)). Possible solution ([#263](https://github.com/rive-app/rive-wasm/pull/263))
+- the 'wasm-unsafe-eval' policy is required to compile and instantiate the wasm module, without enabling JavaScript's eval keyword ([link](https://github.com/WebAssembly/content-security-policy/blob/main/proposals/CSP.md)).
