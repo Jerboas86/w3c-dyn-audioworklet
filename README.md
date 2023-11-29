@@ -17,9 +17,7 @@ The node can be generated in two ways:
 - directly from faust program
 - or from a wasm module and metadata build by faust toolchains
 
-In both cases, everything works fine with regard to sound processing, BUT it requires to modify the Content Security Policy (CSP):
-
-In the best case (generated node via wasm module), i need to modify my CSP from:
+In both cases, everything works fine with regard to sound processing, BUT it requires to modify the Content Security Policy (CSP) from:
 
 ```
 script-src: self 'wasm-unsafe-eval';
